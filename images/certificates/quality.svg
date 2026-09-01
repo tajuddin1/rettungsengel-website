@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-label="Quality">
+  <rect width="240" height="140" rx="10" fill="#fff"/>
+  <path d="M120 28l10 20 22 3-16 16 4 22-20-10-20 10 4-22-16-16 22-3z" fill="#E31C23"/>
+  <text x="120" y="108" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4" fill="#111">QUALITY</text>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-label="DIN">
+  <rect width="240" height="140" rx="10" fill="#fff"/>
+  <rect x="78" y="28" width="84" height="84" rx="8" fill="none" stroke="#111" stroke-width="3"/>
+  <text x="120" y="78" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="28" font-weight="700" fill="#111">DIN</text>
+  <text x="120" y="128" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" letter-spacing="2.4" fill="#E31C23">STANDARD</text>
+</svg>

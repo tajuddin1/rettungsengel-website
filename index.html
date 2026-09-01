@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="de">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Rettungsengel — Sicherheit für die entscheidenden Momente</title>
+
+  <meta name="description"
+    content="Rettungsengel Notfallhämmer und Rettungswerkzeuge für Fahrzeuge und den Alltag. Geprüfte Qualität. Bei Amazon kaufen." />
+
+  <meta property="og:title" content="Rettungsengel — Für die entscheidenden Momente" />
+
+  <meta property="og:description"
+    content="Sicherheit, auf die Sie sich verlassen können, wenn es darauf ankommt. Notfallhämmer, Rettungswerkzeuge und geprüfte Qualität." />
+
+  <link rel="icon" href="icon.png" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* Scrollleiste der Produkt-Miniaturansichten ausblenden, aber scrollbar lassen */
+
+    .thumbs {
+
+      scrollbar-width: none;
+      /* Firefox */
+
+      -ms-overflow-style: none;
+      /* alter Edge/IE */
+
+    }
+
+    .thumbs::-webkit-scrollbar {
+
+      display: none;
+      /* Chrome, Safari, neuer Edge */
+
+    }
+  </style>
+
+</head>
+
+<body id="top">
+
+  <noscript>
+
+    <p class="noscript">Diese Seite benötigt JavaScript, um die Produktdetails zu laden. Bitte aktivieren Sie JavaScript
+      und aktualisieren Sie die Seite.</p>
+
+  </noscript>
+
+  <header class="nav" id="nav">
+
+    <div class="wrap nav-inner">
+
+      <a class="logo" href="/">
+
+        <img src="images/logo.png" alt="" />
+
+      </a>
+
+      <ul class="nav-links" id="nav-links"></ul>
+
+      <a class="btn btn-red" id="nav-amazon" href="#" target="_blank" rel="noopener noreferrer"><span class="amz"
+          aria-hidden="true"></span>Bei Amazon kaufen</a>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+
+    </div>
+
+  </header>
+
+  <section class="hero">
+
+    <div class="wrap hero-grid">
+
+      <div>
+
+        <p class="kicker" id="hero-kicker"></p>
+
+        <h1 id="hero-title"></h1>
+
+        <p class="lead" id="hero-subtitle"></p>
+
+        <p class="copy" id="hero-text"></p>
+
+        <div class="hero-actions">
+
+          <a class="btn btn-red" href="#products">Produkte entdecken</a>
+
+          <a class="btn btn-ghost" href="#about">Über Rettungsengel</a>
+
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+
+        <img id="hero-image" src="images/products/hammer/01.svg" alt="" />
+
+      </div>
+
+    </div>
+
+    <div class="wrap trust-strip" id="trust-strip"></div>
+
+  </section>
+
+  <section class="products" id="products">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <p class="kicker" id="products-kicker"></p>
+
+        <h2 id="products-title"></h2>
+
+        <p id="products-text"></p>
+
+      </div>
+
+      <div class="product-grid" id="product-grid"></div>
+
+      <div id="partner-wrap"></div>
+
+    </div>
+
+  </section>
+
+  <section class="benefits" id="benefits">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <p class="kicker" id="benefits-kicker"></p>
+
+        <h2 id="benefits-title"></h2>
+
+      </div>
+
+      <div class="benefits-grid" id="benefits-grid"></div>
+
+    </div>
+
+  </section>
+
+  <section class="certs" id="certificates">
+
+    <div class="wrap">
+
+      <div class="section-head">
+
+        <p class="kicker" id="certs-kicker"></p>
+
+        <h2 id="certs-title"></h2>
+
+        <p id="certs-text"></p>
+
+      </div>
+
+      <div class="cert-row" id="cert-row"></div>
+
+    </div>
+
+  </section>
+
+  <section class="video-sec" id="about">
+
+    <div class="wrap video-grid">
+
+      <div>
+
+        <p class="kicker" id="video-kicker"></p>
+
+        <h2 id="video-title"></h2>
+
+        <p id="video-text"></p>
+
+      </div>
+
+      <div class="video-frame" id="video-frame"></div>
+
+    </div>
+
+  </section>
+
+  <section class="about">
+
+    <div class="wrap">
+
+      <div class="about-box">
+
+        <p class="kicker">Die Marke</p>
+
+        <h2 id="about-title"></h2>
+
+        <p id="about-text"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="cta-band" id="buy">
+
+    <div class="wrap cta-inner">
+
+      <div>
+
+        <p class="kicker">Rettungsengel</p>
+
+        <h2 id="cta-title"></h2>
+
+      </div>
+
+      <a class="btn btn-red" id="cta-amazon" href="#" target="_blank" rel="noopener noreferrer"><span class="amz"
+          aria-hidden="true"></span>Bei Amazon kaufen</a>
+
+    </div>
+
+  </section>
+
+  <section class="contact" id="contact">
+
+    <div class="wrap">
+
+      <div class="contact-box">
+
+        <p class="kicker">Kontakt</p>
+
+        <h2 id="contact-title"></h2>
+
+        <p id="contact-text"></p>
+
+        <p><a class="mail" id="contact-mail" href="mailto:hello@rettungsengel.de">hello@rettungsengel.de</a></p>
+
+        <p id="contact-note"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="wrap footer-inner">
+
+      <div>
+
+        <a class="logo" href="#top">
+
+          <img src="images/logo.png" alt="" />
+
+        </a>
+
+        <p>Sicherheit für den Moment, in dem es darauf ankommt.</p>
+
+      </div>
+
+      <div class="footer-links">
+
+        <a id="footer-amazon" href="#" target="_blank" rel="noopener noreferrer">Amazon</a>
+
+        <a href="#contact">Kontakt</a>
+
+        <a href="#about">Über uns</a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-label="Produktbild">
+
+    <button type="button" id="lightbox-close" aria-label="Schließen">×</button>
+
+    <img alt="" />
+
+  </div>
+
+  <script src="js/site-config.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 140" role="img" aria-label="TUV tested">
+  <rect width="240" height="140" rx="10" fill="#fff"/>
+  <circle cx="56" cy="70" r="28" fill="none" stroke="#E31C23" stroke-width="3"/>
+  <text x="56" y="76" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="13" font-weight="700" fill="#111">TUV</text>
+  <text x="156" y="64" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="20" font-weight="700" fill="#111">TUV / TESTED</text>
+  <text x="156" y="88" text-anchor="middle" font-family="Outfit, Arial, sans-serif" font-size="11" letter-spacing="2.2" fill="#E31C23">QUALITY MARK</text>
+</svg>
