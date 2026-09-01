@@ -132,7 +132,7 @@ window.SITE = {
 
       short: "Ein kompaktes Rettungswerkzeug für den Alltag – Glasbrecher, Gurtschneider und ein Werkzeug, das immer bei Ihnen bleibt.",
 
-      amazonUrl: "https://www.amazon.de/",
+      amazonUrl: "https://www.amazon.de/dp/B0FMYZ5NDR",
 
       images: [
 
@@ -192,7 +192,7 @@ window.SITE = {
 
       short: "Produkt unseres Messepartners: eine kompakte, DIN-konforme Verbandtasche für das Fahrzeug – bereit für unterwegs und für Kontrollen.",
 
-      amazonUrl: "https://www.amazon.de/",
+      amazonUrl: "https://www.amazon.de/dp/B0H3V1D8GB",
 
       images: [
 
