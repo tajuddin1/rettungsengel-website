@@ -7,7 +7,7 @@
   <meta name="description" content="Rettungsengel entwickelt Rettungswerkzeuge für kritische Momente im Fahrzeug und Alltag. Wenn Sekunden zählen, vorbereitet sein." />
   <meta property="og:title" content="Rettungsengel — Wenn jede Sekunde zählt" />
   <meta property="og:description" content="Unfälle, Feuer, blockierte Türen. Rettungsengel hilft Ihnen, vorbereitet zu sein, wenn es darauf ankommt." />
-  <link rel="icon" href="icon.png" type="image/svg+xml" />
+  <link rel="icon" href="icon.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -29,41 +29,48 @@
   </header>
 
   <main>
-    <section class="hero hero-story" id="hero">
-      <div class="hero-bg"></div>
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="kicker" id="hero-kicker"></p>
+    <!-- Emotion first: full-bleed cinematic hero -->
+    <section class="hero" id="hero">
+      <div class="hero-media" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 800px)" srcset="images/hero/hero-bg-mobile.jpg" />
+          <img id="hero-image" src="images/hero/hero-bg.jpg" alt="" />
+        </picture>
+        <div class="hero-shade"></div>
+        <div class="hero-grain"></div>
+      </div>
+      <div class="wrap hero-stage">
+        <div class="hero-content reveal">
+          <p class="brand-mark" id="hero-kicker"></p>
           <h1 id="hero-title"></h1>
-          <p class="hero-question" id="hero-subtitle"></p>
-          <p class="copy" id="hero-text"></p>
+          <p class="hero-lead" id="hero-subtitle"></p>
+          <p class="hero-copy" id="hero-text"></p>
           <div class="hero-actions">
-            <a class="btn btn-red" href="#situations">Was wäre, wenn?</a>
-            <a class="btn btn-ghost" href="#solution">Rettungsengel entdecken</a>
+            <a class="btn btn-red" id="hero-amazon" href="#" target="_blank" rel="noopener noreferrer"><span class="amz" aria-hidden="true"></span>Bei Amazon kaufen</a>
+            <a class="btn btn-ghost" href="#situations">Was wäre, wenn?</a>
           </div>
-        </div>
-        <div class="hero-visual hero-scene">
-          <img id="hero-image" src="" alt="" />
-          <div class="scene-overlay">
-            <span id="hero-image-label">Wenn Sekunden zählen.</span>
-          </div>
+          <ul class="hero-trust" id="hero-trust"></ul>
         </div>
       </div>
-      <div class="wrap trust-strip" id="trust-strip"></div>
+      <a class="hero-scroll" href="#situations" aria-label="Weiter scrollen">
+        <span></span>
+      </a>
     </section>
 
     <section class="situations" id="situations">
       <div class="wrap">
-        <div class="section-head centered">
-          <p class="kicker" id="situations-kicker"></p>
-          <h2 id="situations-title"></h2>
+        <div class="situations-head reveal">
+          <div>
+            <p class="kicker" id="situations-kicker"></p>
+            <h2 id="situations-title"></h2>
+          </div>
           <p id="situations-text"></p>
         </div>
-        <div class="scenario-grid" id="scenario-grid"></div>
+        <div class="scenario-mosaic" id="scenario-grid"></div>
       </div>
     </section>
 
-    <section class="question-band">
+    <section class="question-band reveal">
       <div class="wrap question-inner">
         <div>
           <p class="kicker">Der kritische Moment</p>
@@ -75,11 +82,10 @@
 
     <section class="problem" id="problem">
       <div class="wrap problem-grid">
-        <div class="problem-visual">
+        <div class="problem-visual reveal">
           <img id="problem-image" src="" alt="" />
-          <span class="problem-badge">Keine Zeit zu suchen.</span>
         </div>
-        <div class="problem-copy">
+        <div class="problem-copy reveal">
           <p class="kicker" id="problem-kicker"></p>
           <h2 id="problem-title"></h2>
           <p id="problem-text"></p>
@@ -90,15 +96,17 @@
 
     <section class="solution" id="solution">
       <div class="wrap solution-grid">
-        <div class="solution-copy">
+        <div class="solution-copy reveal">
           <p class="kicker" id="solution-kicker"></p>
           <h2 id="solution-title"></h2>
           <p id="solution-text"></p>
-          <div class="solution-promise" id="solution-promise"></div>
-          <a class="btn btn-red" href="#products">Rettungsengel Produkte ansehen</a>
+          <p class="solution-promise" id="solution-promise"></p>
+          <div class="solution-actions">
+            <a class="btn btn-red" href="#products">Produkte ansehen</a>
+            <a class="btn btn-ghost" id="solution-amazon" href="#" target="_blank" rel="noopener noreferrer"><span class="amz" aria-hidden="true"></span>Bei Amazon kaufen</a>
+          </div>
         </div>
-        <div class="solution-visual">
-          <div class="solution-ring"></div>
+        <div class="solution-visual reveal">
           <img id="solution-image" src="" alt="" />
         </div>
       </div>
@@ -106,7 +114,7 @@
 
     <section class="products" id="products">
       <div class="wrap">
-        <div class="section-head centered">
+        <div class="section-head reveal">
           <p class="kicker" id="products-kicker"></p>
           <h2 id="products-title"></h2>
           <p id="products-text"></p>
@@ -118,7 +126,7 @@
 
     <section class="benefits" id="benefits">
       <div class="wrap">
-        <div class="section-head centered">
+        <div class="section-head reveal">
           <p class="kicker" id="benefits-kicker"></p>
           <h2 id="benefits-title"></h2>
           <p id="benefits-text"></p>
@@ -129,18 +137,47 @@
 
     <section class="application" id="application">
       <div class="wrap">
-        <div class="section-head centered">
+        <div class="section-head reveal">
           <p class="kicker" id="application-kicker"></p>
           <h2 id="application-title"></h2>
           <p id="application-text"></p>
         </div>
-        <div class="application-grid" id="application-grid"></div>
+        <div class="application-steps" id="application-grid"></div>
+      </div>
+    </section>
+
+    <section class="firefighters" id="firefighters">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker" id="video-kicker"></p>
+          <h2 id="video-title"></h2>
+          <p id="video-text"></p>
+        </div>
+        <div class="firefighter-stage reveal">
+          <div class="firefighter-media" id="video-frame"></div>
+          <div class="firefighter-copy">
+            <p class="firefighter-label">Echte Menschen. Echte Erfahrung.</p>
+            <h3 id="firefighter-title"></h3>
+            <p id="firefighter-text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="kicker" id="reviews-kicker"></p>
+          <h2 id="reviews-title"></h2>
+          <p id="reviews-text"></p>
+        </div>
+        <div class="reviews-grid" id="reviews-grid"></div>
       </div>
     </section>
 
     <section class="certs" id="certificates">
       <div class="wrap">
-        <div class="section-head centered">
+        <div class="section-head reveal">
           <p class="kicker" id="certs-kicker"></p>
           <h2 id="certs-title"></h2>
           <p id="certs-text"></p>
@@ -149,26 +186,8 @@
       </div>
     </section>
 
-    <section class="firefighters" id="firefighters">
-      <div class="wrap">
-        <div class="section-head centered">
-          <p class="kicker" id="video-kicker"></p>
-          <h2 id="video-title"></h2>
-          <p id="video-text"></p>
-        </div>
-        <div class="firefighter-content">
-          <div class="firefighter-media" id="video-frame"></div>
-          <div class="firefighter-copy">
-            <div class="firefighter-label">Echte Menschen. Echte Erfahrung.</div>
-            <h3 id="firefighter-title"></h3>
-            <p id="firefighter-text"></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="about" id="about">
-      <div class="wrap">
+      <div class="wrap reveal">
         <div class="about-box">
           <p class="kicker">Die Marke</p>
           <h2 id="about-title"></h2>
@@ -178,7 +197,7 @@
     </section>
 
     <section class="cta-band" id="buy">
-      <div class="wrap cta-inner">
+      <div class="wrap cta-inner reveal">
         <div>
           <p class="kicker">Rettungsengel</p>
           <h2 id="cta-title"></h2>
@@ -189,7 +208,7 @@
     </section>
 
     <section class="contact" id="contact">
-      <div class="wrap">
+      <div class="wrap reveal">
         <div class="contact-box">
           <p class="kicker">Kontakt</p>
           <h2 id="contact-title"></h2>
@@ -216,12 +235,12 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-label="Produktbild" aria-modal="true">
-    <button type="button" id="lightbox-close" aria-label="Schließen">×</button>
-    <img alt="" />
-  </div>
+  <a class="mobile-buy" id="mobile-amazon" href="#" target="_blank" rel="noopener noreferrer">
+    <span class="amz" aria-hidden="true"></span>Bei Amazon kaufen
+  </a>
 
   <script src="js/site-config.js"></script>
+  <script src="js/product-lightbox.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

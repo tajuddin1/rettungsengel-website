@@ -19,6 +19,9 @@
       .replaceAll("'", "&#039;");
   }
 
+  const ARROW_PREV = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15.4 4.6a1 1 0 0 1 0 1.4L10.4 11l5 5a1 1 0 1 1-1.4 1.4l-5.7-5.7a1 1 0 0 1 0-1.4l5.7-5.7a1 1 0 0 1 1.4 0z" fill="currentColor"/></svg>`;
+  const ARROW_NEXT = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8.6 4.6a1 1 0 0 1 1.4 0l5.7 5.7a1 1 0 0 1 0 1.4L10 17.4A1 1 0 1 1 8.6 16l5-5-5-5a1 1 0 0 1 0-1.4z" fill="currentColor"/></svg>`;
+
   function amazonBtn(url, extraClass = "") {
     return `<a class="btn btn-red ${extraClass}" href="${url}" target="_blank" rel="noopener noreferrer"><span class="amz" aria-hidden="true"></span>Bei Amazon kaufen</a>`;
   }
@@ -41,10 +44,10 @@
       <div class="gallery" data-gallery="${product.id}">
         <div class="gallery-main">
           ${badge}
-          <img src="${first.src}" alt="${escapeHTML(first.alt)}">
+          <img src="${first.src}" alt="${escapeHTML(first.alt)}" draggable="false">
           ${images.length > 1 ? `
-            <button class="gallery-btn prev" type="button" aria-label="Vorheriges Bild">‹</button>
-            <button class="gallery-btn next" type="button" aria-label="Nächstes Bild">›</button>
+            <button class="gallery-btn prev" type="button" aria-label="Vorheriges Bild">${ARROW_PREV}</button>
+            <button class="gallery-btn next" type="button" aria-label="Nächstes Bild">${ARROW_NEXT}</button>
           ` : ""}
         </div>
         ${images.length > 1 ? `<div class="thumbs">${thumbs}</div>` : ""}
@@ -57,7 +60,8 @@
     if (!images.length) return;
 
     let index = 0;
-    const main = node.querySelector(".gallery-main img");
+    const mainWrap = node.querySelector(".gallery-main");
+    const main = mainWrap.querySelector("img");
     const thumbs = [...node.querySelectorAll(".thumbs button")];
 
     function show(i) {
@@ -67,48 +71,87 @@
       thumbs.forEach((t, n) => t.classList.toggle("is-active", n === index));
     }
 
-    node.querySelector(".prev")?.addEventListener("click", () => show(index - 1));
-    node.querySelector(".next")?.addEventListener("click", () => show(index + 1));
-    thumbs.forEach((t) => t.addEventListener("click", () => show(Number(t.dataset.index))));
-    main.addEventListener("click", () => openLightbox(images[index].src, images[index].alt));
-
-    let startX = 0;
-    main.addEventListener("touchstart", (e) => {
-      startX = e.changedTouches[0].clientX;
-    }, { passive: true });
-
-    main.addEventListener("touchend", (e) => {
-      const dx = e.changedTouches[0].clientX - startX;
-      if (Math.abs(dx) > 40) show(index + (dx < 0 ? 1 : -1));
+    node.querySelector(".prev")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(index - 1);
     });
-  }
+    node.querySelector(".next")?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      show(index + 1);
+    });
+    thumbs.forEach((t) => t.addEventListener("click", () => show(Number(t.dataset.index))));
 
-  function openLightbox(src, alt) {
-    const box = $("#lightbox");
-    box.querySelector("img").src = src;
-    box.querySelector("img").alt = alt || "";
-    box.classList.add("is-open");
-    document.body.classList.add("lightbox-open");
-  }
+    mainWrap.addEventListener("click", (e) => {
+      if (e.target.closest(".gallery-btn")) return;
+      if (mainWrap.dataset.didDrag === "1") return;
+      if (window.ProductLightbox) {
+        window.ProductLightbox.open(images, index);
+      }
+    });
 
-  function closeLightbox() {
-    $("#lightbox").classList.remove("is-open");
-    document.body.classList.remove("lightbox-open");
+    // Pointer drag to slide (mouse + touch)
+    let startX = 0;
+    let startY = 0;
+    let dragging = false;
+    let moved = false;
+
+    mainWrap.addEventListener("pointerdown", (e) => {
+      if (e.target.closest(".gallery-btn")) return;
+      if (e.button !== undefined && e.button !== 0) return;
+      dragging = true;
+      moved = false;
+      startX = e.clientX;
+      startY = e.clientY;
+      mainWrap.dataset.didDrag = "0";
+      mainWrap.classList.add("is-dragging");
+      mainWrap.setPointerCapture?.(e.pointerId);
+    });
+
+    mainWrap.addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
+      if (Math.abs(dx) > Math.abs(dy)) {
+        main.style.transform = `translateX(${dx * 0.35}px)`;
+      }
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      mainWrap.classList.remove("is-dragging");
+      main.style.transform = "";
+
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 45) {
+        mainWrap.dataset.didDrag = "1";
+        show(index + (dx < 0 ? 1 : -1));
+      } else if (moved) {
+        mainWrap.dataset.didDrag = "1";
+      }
+    }
+
+    mainWrap.addEventListener("pointerup", endDrag);
+    mainWrap.addEventListener("pointercancel", endDrag);
   }
 
   function productList() {
     return Object.values(SITE.products).filter((p) => p.enabled);
   }
 
+  function setAmazonLinks() {
+    const url = SITE.amazonNavUrl;
+    ["#nav-amazon", "#footer-amazon", "#cta-amazon", "#solution-amazon", "#mobile-amazon", "#hero-amazon"].forEach((sel) => {
+      const node = $(sel);
+      if (node) node.href = url;
+    });
+  }
+
   function renderNav() {
     const list = $("#nav-links");
     list.innerHTML = SITE.nav.map((item) => `<li><a href="${item.href}">${item.label}</a></li>`).join("");
-
-    $("#nav-amazon").href = SITE.amazonNavUrl;
-    const footerAmazon = $("#footer-amazon");
-    if (footerAmazon) footerAmazon.href = SITE.amazonNavUrl;
-    const ctaAmazon = $("#cta-amazon");
-    if (ctaAmazon) ctaAmazon.href = SITE.amazonNavUrl;
+    setAmazonLinks();
   }
 
   function renderHero() {
@@ -117,11 +160,18 @@
     $("#hero-title").textContent = h.title;
     $("#hero-subtitle").textContent = h.subtitle;
     $("#hero-text").textContent = h.text;
-    $("#hero-image").src = h.image;
-    $("#hero-image").alt = h.imageAlt;
-    $("#hero-image-label").textContent = h.imageLabel;
 
-    $("#trust-strip").innerHTML = SITE.trustStrip.map((item) => `<span>${item}</span>`).join("");
+    const img = $("#hero-image");
+    if (img) {
+      img.src = h.image || "images/hero/hero-bg.jpg";
+      img.alt = h.imageAlt || "";
+    }
+
+    const trust = $("#hero-trust");
+    if (trust) {
+      const items = h.trust || SITE.trustStrip || [];
+      trust.innerHTML = items.map((item) => `<li>${escapeHTML(item)}</li>`).join("");
+    }
   }
 
   function renderSituations() {
@@ -131,12 +181,12 @@
     $("#situations-text").textContent = s.text;
 
     $("#scenario-grid").innerHTML = s.items.map((item) => `
-      <article class="scenario-card">
-        <div class="scenario-image">
-          <img src="${item.image}" alt="${escapeHTML(item.alt)}">
-          <span class="scenario-number">${item.number}</span>
+      <article class="scenario reveal ${item.size === "wide" ? "is-wide" : "is-tall"}">
+        <div class="scenario-media">
+          <img src="${item.image}" alt="${escapeHTML(item.alt)}" loading="lazy">
         </div>
         <div class="scenario-body">
+          <span class="scenario-number">${item.number}</span>
           <h3>${item.title}</h3>
           <p>${item.text}</p>
         </div>
@@ -181,17 +231,23 @@
     $("#product-grid").innerHTML = "";
 
     featured.forEach((p) => {
-      const bullets = (p.highlights || []).map((h) => `<li>${h}</li>`).join("");
+      const chips = (p.highlights || []).map((h) => `
+        <li>${escapeHTML(h)}</li>
+      `).join("");
+
+      const details = p.details
+        ? `<p class="product-details">${escapeHTML(p.details)}</p>`
+        : "";
 
       const card = el(`
-        <article class="product-card" id="detail-${p.id}">
+        <article class="product-card reveal" id="detail-${p.id}">
           ${galleryHTML(p)}
           <div class="product-card-body">
-            <div class="brand-tag">${p.brand}</div>
-            <h3>${p.name}</h3>
-            <p class="product-short">${p.short}</p>
-            <p>${p.details}</p>
-            <ul class="bullets">${bullets}</ul>
+            <div class="brand-tag">${escapeHTML(p.brand)}</div>
+            <h3>${escapeHTML(p.name)}</h3>
+            <p class="product-short">${escapeHTML(p.short)}</p>
+            ${details}
+            <ul class="feature-chips">${chips}</ul>
             <div class="card-actions">${amazonBtn(p.amazonUrl)}</div>
           </div>
         </article>
@@ -205,23 +261,26 @@
     partnerWrap.innerHTML = "";
 
     partner.forEach((p) => {
-      const bullets = (p.highlights || []).map((h) => `<li>${h}</li>`).join("");
+      const points = (p.highlights || []).map((h) => `
+        <li><span aria-hidden="true"></span>${escapeHTML(h)}</li>
+      `).join("");
+
+      const details = p.details
+        ? `<p class="product-details">${escapeHTML(p.details)}</p>`
+        : "";
+
       const block = el(`
-        <div class="partner-block" id="detail-${p.id}">
-          <div class="partner-note">
-            <div>
-              <span class="partner-label">Messepartner</span>
-              <h3>${p.name}</h3>
-            </div>
-            <p>Für die Messe integriert und später einfach entfernbar.</p>
-          </div>
+        <div class="partner-block reveal" id="detail-${p.id}">
           <article class="partner-card">
             ${galleryHTML(p)}
             <div class="partner-copy">
-              <div class="brand-tag partner">${p.brand}</div>
-              <h3>${p.name}</h3>
-              <p>${p.details}</p>
-              <ul class="bullets">${bullets}</ul>
+              <div class="partner-copy-top">
+                <div class="brand-tag partner">${escapeHTML(p.brand)}</div>
+                <h3>${escapeHTML(p.name)}</h3>
+                <p class="product-short">${escapeHTML(p.short)}</p>
+                ${details}
+                <ul class="partner-points">${points}</ul>
+              </div>
               <div class="card-actions">${amazonBtn(p.amazonUrl)}</div>
             </div>
           </article>
@@ -239,7 +298,7 @@
     $("#benefits-text").textContent = intro.text;
 
     $("#benefits-grid").innerHTML = SITE.benefits.map((b) => `
-      <article class="benefit">
+      <article class="benefit reveal">
         <div class="num">${b.num}</div>
         <h3>${b.title}</h3>
         <p>${b.text}</p>
@@ -254,7 +313,7 @@
     $("#application-text").textContent = a.text;
 
     $("#application-grid").innerHTML = a.items.map((item) => `
-      <article class="application-card">
+      <article class="application-step reveal">
         <span>${item.icon}</span>
         <h3>${item.title}</h3>
         <p>${item.text}</p>
@@ -268,7 +327,7 @@
     $("#certs-title").textContent = c.title;
     $("#certs-text").textContent = c.text;
     $("#cert-row").innerHTML = c.items.map((item) => `
-      <figure class="cert">
+      <figure class="cert reveal">
         <img src="${item.image}" alt="${escapeHTML(item.name)}">
         <figcaption>${item.name}</figcaption>
       </figure>
@@ -296,13 +355,33 @@
         <div class="video-placeholder">
           <span class="play-mark">▶</span>
           <strong>Feuerwehr-Content folgt</strong>
-          <p>Die neuen Aufnahmen von der Messe werden hier integriert.</p>
+          <p>Authentische Aufnahmen mit echten Einsatzkräften werden hier integriert.</p>
         </div>
       `;
     }
 
     $("#firefighter-title").textContent = SITE.firefighter.title;
     $("#firefighter-text").textContent = SITE.firefighter.text;
+  }
+
+  function renderReviews() {
+    const r = SITE.reviews;
+    if (!r) return;
+
+    $("#reviews-kicker").textContent = r.kicker;
+    $("#reviews-title").textContent = r.title;
+    $("#reviews-text").textContent = r.text;
+
+    $("#reviews-grid").innerHTML = (r.items || []).map((item) => `
+      <article class="review reveal">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
+        <p>“${escapeHTML(item.text)}”</p>
+        <footer>
+          <strong>${escapeHTML(item.name)}</strong>
+          <span>${escapeHTML(item.meta)}</span>
+        </footer>
+      </article>
+    `).join("");
   }
 
   function renderAboutContact() {
@@ -351,14 +430,25 @@
     });
   }
 
-  $("#lightbox-close").addEventListener("click", closeLightbox);
-  $("#lightbox").addEventListener("click", (e) => {
-    if (e.target.id === "lightbox") closeLightbox();
-  });
+  function bindReveal() {
+    const nodes = [...document.querySelectorAll(".reveal")];
+    if (!nodes.length) return;
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeLightbox();
-  });
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+    nodes.forEach((node) => observer.observe(node));
+  }
 
   renderNav();
   renderHero();
@@ -370,8 +460,10 @@
   renderProducts();
   renderBenefits();
   renderApplication();
-  renderCerts();
   renderVideos();
+  renderReviews();
+  renderCerts();
   renderAboutContact();
   bindNavigation();
+  bindReveal();
 })();

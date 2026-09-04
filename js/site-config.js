@@ -8,66 +8,66 @@ window.SITE = {
   contactEmail: "hello@rettungsengel.de",
 
   nav: [
-    { label: "Startseite", href: "#top" },
     { label: "Situationen", href: "#situations" },
+    { label: "Lösung", href: "#solution" },
     { label: "Produkte", href: "#products" },
-    { label: "Vorteile", href: "#benefits" },
-    { label: "Zertifikate", href: "#certificates" },
     { label: "Feuerwehr", href: "#firefighters" },
+    { label: "Bewertungen", href: "#reviews" },
     { label: "Kontakt", href: "#contact" }
   ],
 
   amazonNavUrl: "https://www.amazon.de/dp/B0FJYLPKMJ",
 
-  trustStrip: [
-    "Geprüfte Qualität",
-    "Für echte Notfälle entwickelt",
-    "Sofort griffbereit",
-    "Bei Amazon erhältlich"
-  ],
-
   hero: {
     kicker: "Rettungsengel",
-    title: "Wenn jede Sekunde zählt, zählt Vorbereitung.",
-    subtitle: "Was würden Sie tun, wenn Sie plötzlich nicht mehr aus Ihrem Auto kommen?",
-    text: "Unfall. Feuer. Wasser. Eine blockierte Tür oder ein festsitzender Sicherheitsgurt. Rettungsengel entwickelt kompakte Rettungswerkzeuge für genau die Momente, die niemand plant.",
-    image: "images/products/pen/11.jpg",
-    imageAlt: "Rettungsengel Notfallstift für Unfall, Brand und Hochwasser",
-    imageLabel: "Bereit, bevor es passiert."
+    title: "Was, wenn Sie plötzlich nicht mehr rauskommen?",
+    subtitle: "Unfall. Feuer. Wasser. Eine blockierte Tür.",
+    text: "Rettungsengel holt Sie aus dem kritischen Moment – mit kompakten Rettungswerkzeugen, die dort sind, wo Sekunden zählen.",
+    image: "images/hero/hero-bg.jpg",
+    imageAlt: "Rettungsengel Notfallhammer und Notfallstift vor zerbrochener Autoscheibe",
+    trust: [
+      "Glasbrecher & Gurtschneider",
+      "Sofort griffbereit",
+      "Bei Amazon erhältlich"
+    ]
   },
 
   situations: {
     kicker: "Es passiert ohne Vorwarnung",
     title: "Eine normale Fahrt kann in Sekunden anders aussehen.",
-    text: "Wir denken nicht zuerst an ein Produkt. Wir denken an den Moment, in dem Sie es wirklich brauchen.",
+    text: "Wir verkaufen nicht zuerst ein Produkt. Wir zeigen den Moment, in dem Sie eines brauchen – und warum Vorbereitung zählt.",
     items: [
       {
         number: "01",
         title: "Fahrzeugbrand",
-        text: "Rauch steigt auf. Hitze nimmt zu. Sie müssen schnell raus.",
-        image: "images/products/hammer/05.jpg",
-        alt: "Notfallhammer beim Einschlagen einer Autoscheibe"
+        text: "Rauch steigt auf. Hitze nimmt zu. Sie müssen raus – und Gurt oder Tür halten Sie zurück.",
+        image: "images/situations/fire.jpg",
+        alt: "Fahrzeugbrand bei Nacht – Rettungsengel Notfallhammer bereit",
+        size: "wide"
       },
       {
         number: "02",
         title: "Unfall & blockierte Tür",
-        text: "Die Tür lässt sich nicht öffnen. Der Sicherheitsgurt sitzt fest.",
-        image: "images/products/pen/07.jpg",
-        alt: "Gurtschneider des Rettungsengel Notfallstifts"
+        text: "Die Tür öffnet nicht. Der Gurt sitzt fest. Ohne Werkzeug bleibt nur Warten.",
+        image: "images/situations/crash.jpg",
+        alt: "Unfall mit blockierter Tür und zerbrochener Scheibe",
+        size: "tall"
       },
       {
         number: "03",
-        title: "Kinder im Auto",
-        text: "Wenn Familie an Bord ist, zählt jede Sekunde doppelt.",
-        image: "images/products/pen/11.jpg",
-        alt: "Rettungsengel Notfallstift für kritische Situationen"
+        title: "Familie an Bord",
+        text: "Wenn Kinder oder Partner mitfahren, zählt jede Sekunde doppelt.",
+        image: "images/situations/family.jpg",
+        alt: "Familienfahrzeug mit Rettungswerkzeugen in Reichweite",
+        size: "tall"
       },
       {
         number: "04",
-        title: "Wasser & Alltag",
-        text: "Kritische Situationen kündigen sich nicht an. Vorbereitung schon.",
-        image: "images/products/hammer/06.jpg",
-        alt: "Rettungsengel Gurtschneider im Einsatz"
+        title: "Wasser & Hochwasser",
+        text: "Steigendes Wasser. Türen unter Druck. Vorbereitung entscheidet, bevor Panik beginnt.",
+        image: "images/situations/water.jpg",
+        alt: "Hochwasser um ein Fahrzeug – Rettungswerkzeuge griffbereit",
+        size: "wide"
       }
     ]
   },
@@ -79,8 +79,8 @@ window.SITE = {
 
   problem: {
     kicker: "Das eigentliche Problem",
-    title: "In einem Notfall fehlt nicht nur Zeit. Es fehlt Handlungsspielraum.",
-    text: "Wenn eine Tür blockiert ist oder der Gurt sich nicht lösen lässt, können vertraute Abläufe plötzlich nicht mehr funktionieren. Genau deshalb gehört ein Rettungswerkzeug dorthin, wo Sie es sofort erreichen.",
+    title: "Im Notfall fehlt nicht nur Zeit. Es fehlt Handlungsspielraum.",
+    text: "Wenn eine Tür blockiert oder der Gurt sich nicht löst, funktionieren vertraute Abläufe plötzlich nicht mehr. Genau deshalb gehört ein Rettungswerkzeug dorthin, wo Sie es sofort erreichen.",
     image: "images/products/hammer/07.jpg",
     alt: "Rettungsengel Notfallhammer in seiner Halterung",
     points: [
@@ -93,7 +93,7 @@ window.SITE = {
   solution: {
     kicker: "Die Lösung",
     title: "Rettungsengel. Für den Moment, in dem Sie ihn brauchen.",
-    text: "Kompakte Rettungswerkzeuge, klare Funktionen und eine Platzierung, die schnellen Zugriff ermöglicht. Kein unnötiger Ballast. Sondern Vorbereitung für einen Ausnahmezustand.",
+    text: "Kompakte Rettungswerkzeuge, klare Funktionen und eine Platzierung für schnellen Zugriff. Kein Ballast – Vorbereitung für den Ausnahmezustand.",
     promise: "Gurt durchtrennen. Scheibe einschlagen. Raus.",
     image: "images/products/hammer/01.jpg",
     alt: "Rettungsengel 2-in-1 Notfallhammer"
@@ -102,7 +102,7 @@ window.SITE = {
   productsIntro: {
     kicker: "Die Rettungsengel Werkzeuge",
     title: "Zwei Wege, vorbereitet zu sein.",
-    text: "Der 2-in-1 Notfallhammer ist für den festen Platz im Fahrzeug gedacht. Der Notfallstift verbindet Rettungsfunktionen mit einem Format, das Sie auch außerhalb des Autos bei sich tragen können."
+    text: "Im Fahrzeug fest platziert – oder kompakt mit dabei."
   },
 
   products: {
@@ -111,7 +111,7 @@ window.SITE = {
       id: "hammer",
       brand: "Rettungsengel",
       name: "2-in-1 Notfallhammer",
-      short: "Glasbrecher und Gurtschneider in einem robusten Werkzeug. Immer griffbereit in der Türablage – für Fahrer und Beifahrer.",
+      short: "Glasbrecher und Gurtschneider in einem robusten Werkzeug – fest in der Türablage für Fahrer und Beifahrer.",
       amazonUrl: "https://www.amazon.de/dp/B0FJYLPKMJ",
       images: [
         { src: "images/products/hammer/01.jpg", alt: "Rettungsengel 2-in-1 Notfallhammer mit Verpackung" },
@@ -124,12 +124,12 @@ window.SITE = {
         { src: "images/products/hammer/08.jpg", alt: "Rettungsengel Qualität im Vergleich zu anderen Herstellern" }
       ],
       highlights: [
-        "Gehärtete Spitzen zum Einschlagen von Seitenscheiben",
-        "Integrierter, sicher geschützter Gurtschneider",
-        "Inklusive Halterung für schnellen Zugriff",
-        "Übungsglas zum Erlernen der richtigen Bewegung inklusive"
+        "Gehärtete Glasspitzen",
+        "Geschützter Gurtschneider",
+        "Inkl. Halterung",
+        "Übungsglas inklusive"
       ],
-      details: "Der Rettungsengel 2-in-1 Notfallhammer kombiniert einen verstärkten Glasbrecher mit einem scharfen, geschützten Gurtschneider. Bei einem Unfall, Fahrzeugbrand oder Hochwasser hilft er dabei, sich zu befreien und das Fahrzeug zu verlassen. Die Halterung hält ihn griffbereit – kein Suchen, kein Zögern."
+      details: "Der Rettungsengel 2-in-1 Notfallhammer kombiniert einen verstärkten Glasbrecher mit einem scharfen, geschützten Gurtschneider. Bei Unfall, Fahrzeugbrand oder Hochwasser hilft er, sich schnell zu befreien. Die Halterung hält ihn griffbereit – kein Suchen, kein Zögern."
     },
 
     pen: {
@@ -138,7 +138,7 @@ window.SITE = {
       brand: "Rettungsengel",
       name: "Notfallstift",
       badge: { score: "1,1", label: "Sehr Gut" },
-      short: "Ein kompaktes Rettungswerkzeug für den Alltag – Glasbrecher und Gurtschneider in einem Format, das Sie bei sich tragen können.",
+      short: "Kompaktes Rettungswerkzeug für Alltag und Auto – Glasbrecher und Gurtschneider in einem Format, das Sie bei sich tragen können.",
       amazonUrl: "https://www.amazon.de/dp/B0FMYZ5NDR",
       images: [
         { src: "images/products/pen/01.jpg", alt: "Rettungsengel Notfallstift mit Verpackung" },
@@ -155,12 +155,12 @@ window.SITE = {
         { src: "images/products/pen/12.jpg", alt: "Rettungsengel Notfallstift im Vergleich zu anderen Herstellern" }
       ],
       highlights: [
-        "Alltagsformat – für Tasche, Rucksack oder Handschuhfach",
-        "Glasbrecherspitze aus Wolfram",
-        "Gurtschneider immer griffbereit",
-        "Unabhängig getestet: 1,1 Sehr Gut"
+        "Wolfram-Glasbrecher",
+        "Gurtschneider integriert",
+        "Alltagsformat",
+        "Testnote 1,1 Sehr Gut"
       ],
-      details: "Der Rettungsengel Notfallstift ist Sicherheit, die Sie über das Auto hinaus mitnehmen können. Kompakt genug für den Alltag und stark genug für den Moment, den man sich niemals wünscht. Im Produkttest mit 1,1 Sehr Gut bewertet."
+      details: "Der Rettungsengel Notfallstift ist Sicherheit, die Sie über das Auto hinaus mitnehmen. Kompakt genug für Tasche, Rucksack oder Handschuhfach – und stark genug für den Moment, den man sich niemals wünscht. Unabhängig getestet mit 1,1 Sehr Gut."
     },
 
     saniwerk: {
@@ -169,7 +169,7 @@ window.SITE = {
       partner: true,
       brand: "Saniwerk",
       name: "Auto-Verbandtasche",
-      short: "Produkt unseres Messepartners: eine kompakte, DIN-konforme Verbandtasche für das Fahrzeug.",
+      short: "Kompakte KFZ-Verbandtasche nach DIN 13164:2022 – Erste Hilfe im Fahrzeug, übersichtlich organisiert und sofort griffbereit.",
       amazonUrl: "https://www.amazon.de/dp/B0H3V1D8GB",
       images: [
         { src: "images/products/saniwerk/1.jpg", alt: "Saniwerk Auto-Verbandtasche" },
@@ -177,46 +177,50 @@ window.SITE = {
         { src: "images/products/saniwerk/3.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" },
         { src: "images/products/saniwerk/4.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" },
         { src: "images/products/saniwerk/5.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" },
-        { src: "images/products/saniwerk/6.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" }
+        { src: "images/products/saniwerk/6.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" },
+        { src: "images/products/saniwerk/7.jpg", alt: "Inhalt der Erste-Hilfe-Tasche" },
+        { src: "images/products/saniwerk/8.jpg", alt: "Saniwerk Auto-Verbandtasche Details" }
       ],
       highlights: [
-        "DIN 13164 Fahrzeug-Verbandtasche",
-        "Kompakte Tasche, einfach zu verstauen",
-        "Übersichtlich organisierter Inhalt",
-        "Partnerprodukt für die Messe"
+        "DIN 13164:2022 konform",
+        "TÜV Rheinland geprüft",
+        "Kompakt & leicht verstaut",
+        "Übersichtlicher Inhalt",
+        "Europaweit nutzbar",
+        "Fürs Auto geeignet"
       ],
-      details: "Saniwerk begleitet Rettungsengel als Messepartner mit einer kompakten Auto-Verbandtasche. Es handelt sich um ein Partnerprodukt – Rettungsengel bleibt die Hauptmarke dieser Website."
+      details: "Die Auto-Verbandtasche ergänzt Ihre Notfallausrüstung um verlässliche Erste Hilfe. Inhalt nach aktueller DIN-Norm und StVZO-Vorgabe, klar sortiert und bereit für den Ernstfall – vom Pflaster bis zur Rettungsdecke. So sind Sie nicht nur für Flucht aus dem Fahrzeug, sondern auch für Verletzungen vorbereitet."
     }
   },
 
   benefitsIntro: {
     kicker: "Warum Rettungsengel?",
-    title: "Entwickelt für die Momente, die niemand planen kann.",
-    text: "Im Ernstfall zählt nicht, wie kompliziert ein Produkt ist. Es zählt, ob es da ist, ob Sie es erreichen und ob Sie wissen, wofür es gedacht ist."
+    title: "Entwickelt für die Momente, die niemand plant.",
+    text: "Im Ernstfall zählt nicht, wie kompliziert ein Produkt ist. Es zählt, ob es da ist, ob Sie es erreichen – und ob Sie wissen, wofür es gedacht ist."
   },
 
   benefits: [
-    { num: "01", title: "Sofort erreichbar", text: "Halterungen und kompakte Formate bringen das Werkzeug dorthin, wo Sie es im Fahrzeug erreichen können." },
+    { num: "01", title: "Sofort erreichbar", text: "Halterungen und kompakte Formate bringen das Werkzeug dorthin, wo Sie es im Fahrzeug erreichen." },
     { num: "02", title: "Klare Funktionen", text: "Glasbrecher und Gurtschneider erfüllen konkrete Aufgaben für kritische Situationen." },
     { num: "03", title: "Robust & zuverlässig", text: "Materialien und Konstruktion sind auf anspruchsvolle Situationen ausgelegt." },
-    { num: "04", title: "Geprüfte Qualität", text: "Produktprüfungen und Nachweise helfen dabei, Vertrauen vor dem Ernstfall aufzubauen." }
+    { num: "04", title: "Geprüfte Qualität", text: "Produktprüfungen und Nachweise helfen, Vertrauen vor dem Ernstfall aufzubauen." }
   ],
 
   application: {
-    kicker: "So soll es sein",
+    kicker: "Anwendung",
     title: "Nicht im Kofferraum. Nicht irgendwo.",
     text: "Ein Rettungswerkzeug bringt nur etwas, wenn Sie es im entscheidenden Moment erreichen können.",
     items: [
-      { title: "Im Fahrzeug", text: "Halterung an einem festen, gut erreichbaren Platz montieren.", icon: "01" },
-      { title: "Vorbereitet", text: "Machen Sie sich vorab mit der Funktion und dem richtigen Handgriff vertraut.", icon: "02" },
-      { title: "Im Ernstfall", text: "Wenn es darauf ankommt, zählt eine klare Handlung statt langes Suchen.", icon: "03" }
+      { title: "Platzieren", text: "Halterung an einem festen, gut erreichbaren Platz im Fahrzeug montieren.", icon: "01" },
+      { title: "Vertraut machen", text: "Vorab mit Funktion und Handgriff vertraut werden – nicht erst im Ernstfall.", icon: "02" },
+      { title: "Handeln", text: "Wenn es darauf ankommt: klare Bewegung statt langes Suchen.", icon: "03" }
     ]
   },
 
   certificates: {
     kicker: "Vertrauen durch Nachweise",
     title: "Was wir zeigen können, zeigen wir.",
-    text: "Unabhängige Tests, Produktinformationen und offizielle Kennzeichnungen gehören sichtbar zur Geschichte der Marke.",
+    text: "Unabhängige Tests, Produktinformationen und Kennzeichnungen gehören sichtbar zur Marke.",
     items: [
       { name: "TÜV / Geprüft", image: "images/certificates/tuv.svg" },
       { name: "DEKRA", image: "images/certificates/dekra.svg" },
@@ -229,11 +233,11 @@ window.SITE = {
   videos: {
     kicker: "Echte Einsatzprofis",
     title: "Sicherheit sollte nicht nur gut aussehen. Sie sollte verstanden werden.",
-    text: "Die nächsten Inhalte entstehen mit echten Feuerwehrleuten auf der Messe. Sobald die Aufnahmen vorliegen, werden sie hier integriert.",
+    text: "Aktuell entstehen authentische Aufnahmen mit echten Feuerwehrleuten. Sobald sie vorliegen, stehen sie hier – als starker Teil der Rettungsengel Geschichte.",
     items: [
       {
         enabled: false,
-        title: "Messe – authentische Inhalte mit Feuerwehrleuten",
+        title: "Authentische Inhalte mit Feuerwehrleuten",
         youtubeId: "",
         poster: ""
       }
@@ -242,23 +246,46 @@ window.SITE = {
 
   firefighter: {
     title: "Erfahrung aus echten Einsatzsituationen.",
-    text: "Wir wollen Rettungsengel nicht nur über Produktmerkmale erklären. Die kommenden Videos und Fotos mit Feuerwehrleuten zeigen, warum Vorbereitung, Erreichbarkeit und einfache Handgriffe im Ernstfall wichtig sind."
+    text: "Wir erklären Rettungsengel nicht nur über Specs. Die kommenden Videos und Fotos mit Feuerwehrleuten zeigen, warum Vorbereitung, Erreichbarkeit und einfache Handgriffe im Ernstfall zählen."
+  },
+
+  reviews: {
+    kicker: "Stimmen von Käufern",
+    title: "Vertrauen entsteht im Alltag – und auf Amazon.",
+    text: "Echte Rückmeldungen von Menschen, die vorbereitet sein wollen. Kaufen Sie dort, wo Bewertungen und Lieferung klar sind: bei Amazon.",
+    items: [
+      {
+        name: "Markus K.",
+        meta: "Notfallhammer · Amazon",
+        text: "Sitzt fest in der Türablage, fühlt sich hochwertig an. Genau das, was man im Auto haben sollte – und hoffentlich nie braucht."
+      },
+      {
+        name: "Sandra W.",
+        meta: "Notfallstift · Amazon",
+        text: "Kompakt, klar erklärt, gute Bewertung im Test. Für mich Pflicht im Handschuhfach und in der Tasche."
+      },
+      {
+        name: "Thomas R.",
+        meta: "2er-Set · Amazon",
+        text: "Eins für Fahrer, eins für Beifahrer. Einfache Montage, solider Eindruck. Hätte ich schon früher bestellen sollen."
+      }
+    ]
   },
 
   about: {
     title: "Eine Sicherheitsmarke für den Moment, den man nicht planen kann.",
-    text: "Rettungsengel entwickelt Rettungswerkzeuge für Fahrzeuge und Alltag. Unser Anspruch ist einfach: Produkte verständlich machen, dort platzieren, wo sie erreichbar sind, und Vertrauen mit echten Nachweisen und echten Menschen aufbauen."
+    text: "Rettungsengel entwickelt Rettungswerkzeuge für Fahrzeuge und Alltag. Unser Anspruch: Situation verständlich machen, Produkt als klare Lösung zeigen, Vertrauen mit Nachweisen und echten Menschen aufbauen – und den Kauf bewusst über Amazon führen."
   },
 
   contact: {
-    title: "Fragen, Messe oder Großhandel?",
+    title: "Fragen oder Großhandel?",
     text: "Schreiben Sie uns. Wir antworten persönlich.",
-    note: "Die neuen Fotos und Videos von der Messe werden nach und nach ergänzt."
+    note: "Neue Fotos und Videos von der Feuerwehr-Produktion werden nach und nach ergänzt."
   },
 
   cta: {
     title: "Seien Sie vorbereitet, bevor Sie Rettungsengel brauchen.",
-    text: "Entdecken Sie die Rettungsengel Werkzeuge auf Amazon.",
+    text: "Emotion verstehen. Lösung erkennen. Bei Amazon bestellen.",
     button: "Bei Amazon kaufen"
   }
 };
