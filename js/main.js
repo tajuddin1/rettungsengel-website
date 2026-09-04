@@ -420,13 +420,17 @@
       scrollToTarget(target);
 
       $("#nav").classList.remove("is-open");
-      $("#nav-toggle").setAttribute("aria-expanded", "false");
+      const toggle = $("#nav-toggle");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Menü öffnen");
     });
 
     $("#nav-toggle").addEventListener("click", () => {
       const nav = $("#nav");
+      const toggle = $("#nav-toggle");
       const open = nav.classList.toggle("is-open");
-      $("#nav-toggle").setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
     });
   }
 
