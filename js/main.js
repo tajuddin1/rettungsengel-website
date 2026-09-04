@@ -142,7 +142,7 @@
 
   function setAmazonLinks() {
     const url = SITE.amazonNavUrl;
-    ["#nav-amazon", "#footer-amazon", "#cta-amazon", "#solution-amazon", "#mobile-amazon", "#hero-amazon"].forEach((sel) => {
+    ["#nav-amazon", "#footer-amazon", "#cta-amazon", "#solution-amazon", "#hero-amazon"].forEach((sel) => {
       const node = $(sel);
       if (node) node.href = url;
     });
@@ -231,9 +231,9 @@
     $("#product-grid").innerHTML = "";
 
     featured.forEach((p) => {
-      const chips = (p.highlights || []).map((h) => `
-        <li>${escapeHTML(h)}</li>
-      `).join("");
+      const chips = (p.highlights || []).length
+        ? `<ul class="feature-chips">${(p.highlights || []).map((h) => `<li>${escapeHTML(h)}</li>`).join("")}</ul>`
+        : "";
 
       const details = p.details
         ? `<p class="product-details">${escapeHTML(p.details)}</p>`
@@ -247,7 +247,7 @@
             <h3>${escapeHTML(p.name)}</h3>
             <p class="product-short">${escapeHTML(p.short)}</p>
             ${details}
-            <ul class="feature-chips">${chips}</ul>
+            ${chips}
             <div class="card-actions">${amazonBtn(p.amazonUrl)}</div>
           </div>
         </article>

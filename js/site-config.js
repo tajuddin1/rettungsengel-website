@@ -123,12 +123,7 @@ window.SITE = {
         { src: "images/products/hammer/07.jpg", alt: "Notfallhammer in seiner Halterung" },
         { src: "images/products/hammer/08.jpg", alt: "Rettungsengel Qualität im Vergleich zu anderen Herstellern" }
       ],
-      highlights: [
-        "Gehärtete Glasspitzen",
-        "Geschützter Gurtschneider",
-        "Inkl. Halterung",
-        "Übungsglas inklusive"
-      ],
+      highlights: [],
       details: "Der Rettungsengel 2-in-1 Notfallhammer kombiniert einen verstärkten Glasbrecher mit einem scharfen, geschützten Gurtschneider. Bei Unfall, Fahrzeugbrand oder Hochwasser hilft er, sich schnell zu befreien. Die Halterung hält ihn griffbereit – kein Suchen, kein Zögern."
     },
 
@@ -154,12 +149,7 @@ window.SITE = {
         { src: "images/products/pen/11.jpg", alt: "Notfallstift für Situationen wie Hochwasser, Brand und Unfall" },
         { src: "images/products/pen/12.jpg", alt: "Rettungsengel Notfallstift im Vergleich zu anderen Herstellern" }
       ],
-      highlights: [
-        "Wolfram-Glasbrecher",
-        "Gurtschneider integriert",
-        "Alltagsformat",
-        "Testnote 1,1 Sehr Gut"
-      ],
+      highlights: [],
       details: "Der Rettungsengel Notfallstift ist Sicherheit, die Sie über das Auto hinaus mitnehmen. Kompakt genug für Tasche, Rucksack oder Handschuhfach – und stark genug für den Moment, den man sich niemals wünscht. Unabhängig getestet mit 1,1 Sehr Gut."
     },
 
