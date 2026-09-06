@@ -994,7 +994,7 @@ h1, h2, h3, p { margin-top: 0; }
 
 .application-step {
   padding: 36px 28px 8px 0;
-  border-right: 1px solid var(--line);
+  /* border-right: 1px solid var(--line); */
 }
 
 .application-step:last-child {
