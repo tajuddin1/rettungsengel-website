@@ -353,7 +353,7 @@
     } else {
       frame.innerHTML = `
         <div class="video-placeholder">
-          <span class="play-mark">▶</span>
+          <span class="play-mark"><i class="fa-solid fa-play"></i></span>
           <strong>Feuerwehr-Content folgt</strong>
           <p>Authentische Aufnahmen mit echten Einsatzkräften werden hier integriert.</p>
         </div>
